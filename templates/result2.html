@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Forest Result</title>
+    
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1>Random Forest Result</h1> 
+        
+        <div class="mb-4">
+            <h4>Training Accuracy:</h4>
+            <p class="lead">{{ train_accuracy }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h4>Model Accuracy Score:</h4>
+            <p class="lead">{{ accuracy_model2 }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h4>Testing Accuracy:</h4>
+            <p class="lead">{{ test_accuracy }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h2>Confusion Matrix</h2>
+            <pre>{{ confusion_matrix }}</pre>
+
+            <img src="{{ url_for('static', filename='random_confusion_matrix.png') }}" alt="Confusion matrix" class="img-fluid">
+        </div>
+
+        <div class="mb-4">
+            <h2>Classification Report</h2>
+            <pre>{{ classification_report }}</pre>
+        </div>
+
+    </div>
+
+    
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

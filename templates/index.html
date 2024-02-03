@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Data</title>
+    
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="mb-4">Upload Data</h1>
+
+        <form action="/train_test" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="file">Choose a CSV file:</label>
+                <input type="file" class="form-control-file" name="file" accept=".csv" required>
+            </div>
+
+            <div class="form-group">
+                <label for="model">Choose a model:</label>
+                <select class="form-control col-md-3" name="model" required>
+                    <option value="disable" selected disabled> Select Model</option>
+                    <option value="decision_tree">Decision Tree Model</option>
+                    <option value="random_forest">Random Forest Model</option>
+                    <!-- Add more models if needed -->
+                </select>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Train and Test</button>
+            </div>
+        </form>
+
+        {% if error %}
+            <div class="mt-3">
+                <p class="text-danger">{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
